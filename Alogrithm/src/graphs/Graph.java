@@ -1,39 +1,29 @@
 package graphs;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Graph {
 	int edgecount=0;
-	int [][] vertecies;
+	private ArrayList<Integer>[] vertecies ;
 	int vertexcount=0;
 	public Graph(int v) {
-		vertecies = new int[v][v];
-		
+		vertecies = new ArrayList[v+1];
+		for( int i =0 ;i<=v;i++){
+			vertecies[i] = new ArrayList<Integer>();
+			
+		}
 		
 	}
 	
-	
 	public void addEdge(int v , int w){
-		vertecies[v][w] =1;
-		vertecies[w][v] =1;
+		vertecies[v].add(w);
+		vertecies[w].add(v);
 		edgecount+=1;
 		
 	}
 	public Iterator<Integer> adj(int v){
-		Iterator<Integer> iterator = new Iterator<Integer>() {
-			int i=0;
-			@Override
-			public Integer next() {
-				
-				return vertecies[v][i++];
-			}
-			
-			@Override
-			public boolean hasNext() {
-				return i<v;
-			}
-		};
-		return iterator;
+		return vertecies[v].iterator();
 	}
 	
 	public int E(){
@@ -47,7 +37,7 @@ public class Graph {
 	public String toString() {
 		StringBuilder graphRep = new StringBuilder();
 		
-		for (int[] w :vertecies){
+		for (ArrayList<Integer> w :vertecies){
 			for (int v :w){
 				graphRep.append(v+" ");
 				
