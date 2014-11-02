@@ -13,9 +13,11 @@ public class Graph {
 			vertecies[i] = new ArrayList<Integer>();
 			
 		}
-		
+		vertexcount=v;
 	}
-	
+	public int getHead(){
+		return  (int)(Math.random()*V())==0 ? 1 : (int)(Math.random()*V())  ;
+	}
 	public void addEdge(int v , int w){
 		vertecies[v].add(w);
 		vertecies[w].add(v);
