@@ -16,7 +16,8 @@ public class Graph {
 		vertexcount=v;
 	}
 	public int getHead(){
-		return  (int)(Math.random()*V())==0 ? 1 : (int)(Math.random()*V())  ;
+		return 1;
+//		return  (int)(Math.random()*V())==0 ? 1 : (int)(Math.random()*V())  ;
 	}
 	public void addEdge(int v , int w){
 		vertecies[v].add(w);
