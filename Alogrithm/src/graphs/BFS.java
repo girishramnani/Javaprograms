@@ -20,8 +20,8 @@ public class BFS {
 		while(!queue.isEmpty()){
 			Integer i = queue.pop();
 			if (!visited.contains(i)){
-				Iterator<Integer> iterator = g.adj(i);
-				iterator.forEachRemaining(item -> queue.add(item));
+				Iterable<Integer> iterator = g.adj(i);
+				iterator.forEach(item -> queue.add(item));
 				visited.add(i);
 				System.out.println("visited "+i);
 			}
@@ -30,13 +30,13 @@ public class BFS {
 		
 	}
 	public static void main(String[] args) {
-		Graph g = new Graph(5);
+		Diagraph<Integer> g = new Diagraph<Integer>(5);
 		
 		g.addEdge(1, 2);
 		g.addEdge(2, 3);
 		g.addEdge(3, 4);
 		g.addEdge(4, 5);
-		g.addEdge(5, 1);
+		
 		Search(g, 5);
 	}
 
