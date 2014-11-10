@@ -20,8 +20,8 @@ public class DFS {
 		while(!queue.isEmpty()){
 			Integer i = queue.pollLast(); // this line was changed
 			if (!visited.contains(i)){
-				Iterator<Integer> iterator = g.adj(i);
-				iterator.forEachRemaining(item -> queue.add(item));
+				Iterable<? extends Object> iterator = g.adj(i);
+				iterator.forEach(item -> queue.add((Integer) item));
 				visited.add(i);
 				System.out.println("visited "+i);
 			}
