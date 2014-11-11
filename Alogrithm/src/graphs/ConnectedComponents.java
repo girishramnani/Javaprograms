@@ -21,6 +21,10 @@ public class  ConnectedComponents  {
 		StartTraversing();
 		
 	}
+	
+	/**
+	 * the method does DFS for each vertex in the graph
+	 */
 	private void StartTraversing(){
 		int vertexnumber=2;
 		dfs = new DFSRecursive(graph);
